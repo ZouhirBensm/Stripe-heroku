@@ -1,7 +1,7 @@
 const express = require('express')
 const keys = require('./config/keys')
 const stripe = require('stripe')(keys.stripeSecretKey)
-const port = 5000
+const port = process.env.PORT || 5000
 
 
 const exphbs = require('express-handlebars')
@@ -19,6 +19,10 @@ app.use(express.urlencoded({extended: false}))
 //Set static folder
 app.use(express.static(`${__dirname}/public`))
 
+
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`)
+})
 
 //Index Route
 app.get('/', (req,res)=>{
@@ -57,6 +61,3 @@ app.post('/charge',(req,res) => {
 })
 
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`)
-})
