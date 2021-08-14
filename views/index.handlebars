@@ -1,0 +1,20 @@
+<section>
+  <div>
+    <div>
+      <h1>Typto product</h1>
+    </div>
+    <p>Have access to trypto orders</p>
+    <form action="/charge" method="post">
+      <script 
+      src="https://checkout.stripe.com/checkout.js"
+      class="stripe-button"
+      data-key="{{stripePublishableKey}}"
+      data-amount="2500"
+      data-name="Trypto Data"
+      data-description="Databases of orders"
+      data-locale="auto">
+      </script>
+      
+    </form>
+  </div>
+</section>
